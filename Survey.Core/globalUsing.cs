@@ -6,3 +6,5 @@ global using Survey.Entities.entities;
 global using Survey.Core.Dtos.Poll.Base;
 global using Survey.Core.IRepositories.Generic;
 global using Survey.Core.IRepositories.NonGeneric;
+global using Survey.Core.Specifications;
+global using System.Linq.Expressions;

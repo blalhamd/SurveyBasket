@@ -10,3 +10,5 @@ global using Survey.DataAccess.Context;
 global using System.Text.Json;
 global using Survey.Core.IUnit;
 global using Survey.DataAccess.Repositories.Non_Generic;
+global using Survey.Core.Specifications;
+global using Survey.DataAccess.Specification.Evalutor;

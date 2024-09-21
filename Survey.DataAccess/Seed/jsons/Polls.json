@@ -1,10 +1,42 @@
 [
   {
-    "Name": "Test 1",
-    "Description": "Test 1 Des"
+    "Title": "Favorite Movie Genre",
+    "Description": "A poll to determine the most popular movie genre among participants."
   },
   {
-    "Name": "Test 2",
-    "Description": "Test 2 Des"
+    "Title": "Best Vacation Destination",
+    "Description": "A poll asking participants to choose their favorite vacation destination."
+  },
+  {
+    "Title": "Preferred Programming Language",
+    "Description": "This poll seeks to find out which programming language is most favored by developers."
+  },
+  {
+    "Title": "Favorite Sport",
+    "Description": "A poll to discover the most loved sport among the general public."
+  },
+  {
+    "Title": "Most Used Social Media Platform",
+    "Description": "A poll to determine which social media platform is used the most."
+  },
+  {
+    "Title": "Best Coffee Brand",
+    "Description": "Participants are asked to select their preferred coffee brand in this poll."
+  },
+  {
+    "Title": "Favorite Music Genre",
+    "Description": "A poll to find out which genre of music is the most popular."
+  },
+  {
+    "Title": "Preferred Mode of Transportation",
+    "Description": "This poll explores people's favorite way to travel, whether by car, bike, or public transit."
+  },
+  {
+    "Title": "Best Streaming Service",
+    "Description": "A poll asking participants to pick the best video streaming service."
+  },
+  {
+    "Title": "Favorite Cuisine",
+    "Description": "This poll is aimed at discovering the most liked cuisine among different cultures."
   }
 ]
