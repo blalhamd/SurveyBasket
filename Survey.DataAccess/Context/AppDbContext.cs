@@ -1,8 +1,5 @@
 ﻿
 
-using Microsoft.EntityFrameworkCore;
-using Survey.Entities.entities;
-
 namespace Survey.DataAccess.Context
 {
     public class AppDbContext : DbContext

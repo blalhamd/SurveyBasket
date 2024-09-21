@@ -1,4 +1,6 @@
 ﻿
+using Survey.Core.Dtos.Poll.Requests;
+using Survey.Core.Dtos.Poll.Responses;
 using Survey.Entities.entities; // don't forget to remove referefce of entities project
 
 namespace Survey.API.Controllers
@@ -17,28 +19,57 @@ namespace Survey.API.Controllers
         };
 
         [HttpGet]
-        public async Task<IList<Poll>> GetPolls()
+        public async Task<IList<PollResponse>> GetPolls()
         {
+            var polls = _polls.ToList();
+
+            var pollsDTos = new List<PollResponse>();
             
-            return _polls.ToList();
+            foreach (var poll in polls)
+            {
+                pollsDTos.Add(new PollResponse()
+                {
+                    Id = poll.Id,
+                    Title = poll.Title,
+                    Description = poll.Description,
+                });
+            }
+
+            return pollsDTos;
         }
 
         [HttpGet("{id}")]
-        public async Task<Poll> GetById(int id)
+        public async Task<PollResponse> GetById(int id)
         {
-            return _polls.FirstOrDefault(x => x.Id == id);
+            var poll = _polls.FirstOrDefault(x=> x.Id == id);
+
+            var pollsDTo = new PollResponse()
+            {
+                Id = poll.Id,
+                Title = poll.Title,
+                Description = poll.Description,
+            };
+
+            return pollsDTo;
         }
 
         [HttpPost]
-        public async Task<Poll> AddPoll(Poll poll)
+        public Task AddPoll(CreatePollRequest pollRequest)
         {
+            var poll = new Poll()
+            {
+                Id = _polls.Count + 1,
+                Title = pollRequest.Title,
+                Description = pollRequest.Description,
+            };
+            
             _polls.Add(poll);
 
-            return _polls.LastOrDefault();
+           return Task.CompletedTask;
         }
 
         [HttpPut("{id}")]
-        public async Task<Poll> Update(int id,Poll poll)
+        public async Task<Poll> Update(int id,CreatePollRequest poll)
         {
             var query = _polls.FirstOrDefault(x => x.Id == id);
 

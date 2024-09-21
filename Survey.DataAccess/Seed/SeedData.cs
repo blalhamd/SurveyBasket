@@ -1,10 +1,4 @@
 ﻿
-
-using Microsoft.EntityFrameworkCore;
-using Survey.DataAccess.Context;
-using Survey.Entities.entities;
-using System.Text.Json;
-
 namespace Survey.DataAccess.Seed
 {
     public static class SeedData

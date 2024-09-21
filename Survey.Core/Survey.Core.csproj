@@ -10,7 +10,10 @@
     <Folder Include="AutoMapper\" />
     <Folder Include="IRepositories\NonGeneric\" />
     <Folder Include="IServices\" />
-    <Folder Include="ViewModels\Poll\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿
 
 namespace Survey.Core.AutoMapper
 {
@@ -6,7 +6,9 @@ namespace Survey.Core.AutoMapper
     {
         public Mapping()
         {
+            CreateMap<Poll,PollResponse>().ReverseMap();
 
+            CreateMap<CreatePollRequest,Poll>().ReverseMap();
         }
     }
 }

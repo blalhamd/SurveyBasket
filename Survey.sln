@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survey.API", "Survey.API\Survey.API.csproj", "{F871AFCD-25B4-485D-ACB3-64EC2402BD60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Survey.Entities", "Survey.Entities\Survey.Entities.csproj", "{90868773-3209-4E16-BA19-068302F3ABB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survey.Entities", "Survey.Entities\Survey.Entities.csproj", "{90868773-3209-4E16-BA19-068302F3ABB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Survey.Core", "Survey.Core\Survey.Core.csproj", "{878136D7-C99F-4206-A0E1-D9BE041F7CF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survey.Core", "Survey.Core\Survey.Core.csproj", "{878136D7-C99F-4206-A0E1-D9BE041F7CF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Survey.DataAccess", "Survey.DataAccess\Survey.DataAccess.csproj", "{C3BE36D2-D3F3-4787-A1D4-CA99A04B1ECB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survey.DataAccess", "Survey.DataAccess\Survey.DataAccess.csproj", "{C3BE36D2-D3F3-4787-A1D4-CA99A04B1ECB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Survey.Business", "Survey.Business\Survey.Business.csproj", "{D53B4EF7-3052-43BD-AD65-4EA750A060EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survey.Business", "Survey.Business\Survey.Business.csproj", "{D53B4EF7-3052-43BD-AD65-4EA750A060EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Survey.DependencyInjection", "Survey.DependencyInjection\Survey.DependencyInjection.csproj", "{EA53B840-764A-4EB9-9372-97AFFCC0D7F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Survey.API", "..\..\MyProjects\Survey\Survey.API\Survey.API.csproj", "{7FCAFDC1-132E-4459-8C39-CEDF6794F56E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F871AFCD-25B4-485D-ACB3-64EC2402BD60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F871AFCD-25B4-485D-ACB3-64EC2402BD60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F871AFCD-25B4-485D-ACB3-64EC2402BD60}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F871AFCD-25B4-485D-ACB3-64EC2402BD60}.Release|Any CPU.Build.0 = Release|Any CPU
 		{90868773-3209-4E16-BA19-068302F3ABB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{90868773-3209-4E16-BA19-068302F3ABB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90868773-3209-4E16-BA19-068302F3ABB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +37,14 @@ Global
 		{D53B4EF7-3052-43BD-AD65-4EA750A060EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D53B4EF7-3052-43BD-AD65-4EA750A060EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D53B4EF7-3052-43BD-AD65-4EA750A060EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA53B840-764A-4EB9-9372-97AFFCC0D7F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA53B840-764A-4EB9-9372-97AFFCC0D7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA53B840-764A-4EB9-9372-97AFFCC0D7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA53B840-764A-4EB9-9372-97AFFCC0D7F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FCAFDC1-132E-4459-8C39-CEDF6794F56E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FCAFDC1-132E-4459-8C39-CEDF6794F56E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FCAFDC1-132E-4459-8C39-CEDF6794F56E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FCAFDC1-132E-4459-8C39-CEDF6794F56E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

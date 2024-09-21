@@ -1,0 +1,12 @@
+﻿global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Survey.Core.AutoMapper;
+global using Survey.Core.IRepositories.Generic;
+global using Survey.DataAccess.Context;
+global using Survey.DataAccess.Repositories.Generic;
+global using Survey.DataAccess.Seed;
+global using Survey.Business.Services;
+global using Survey.Core.IServices;
+global using Survey.Core.IUnit;
+global using Survey.DataAccess.Unit;

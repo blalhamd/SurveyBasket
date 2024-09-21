@@ -1,4 +1,4 @@
-﻿using Survey.Entities.entities;
+﻿
 
 namespace Survey.DataAccess.Specification.Evalutor
 {
