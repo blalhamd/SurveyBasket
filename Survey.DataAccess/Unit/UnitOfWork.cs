@@ -7,7 +7,7 @@ namespace Survey.DataAccess.Unit
         private readonly AppDbContext _appDbContext;
         public UnitOfWork(AppDbContext appDbContext)
         {
-            PollRepository = new PollRepositoryAsync();
+            PollRepository = new PollRepositoryAsync(appDbContext);
             _appDbContext = appDbContext;
         }
         public ValueTask DisposeAsync()

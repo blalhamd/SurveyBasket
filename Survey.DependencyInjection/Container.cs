@@ -27,7 +27,7 @@ namespace Survey.DependencyInjection
 
             services.AddAutoMapper(typeof(Mapping));
 
-            await services.SendDefaultData();
+         //   await services.SendDefaultData();
 
             return services;
         }
@@ -48,14 +48,14 @@ namespace Survey.DependencyInjection
             return services;
         }
 
-        public static async Task<IServiceCollection> SendDefaultData(this IServiceCollection services)
-        {
-            var scope = services.BuildServiceProvider().CreateScope();
-            var provider = scope.ServiceProvider;
-            var dbcontext = provider.GetRequiredService<AppDbContext>();
-            await SeedData.Seeding(dbcontext);
+        //public static async Task<IServiceCollection> SendDefaultData(this IServiceCollection services)
+        //{
+        //    var scope = services.BuildServiceProvider().CreateScope();
+        //    var provider = scope.ServiceProvider;
+        //    var dbcontext = provider.GetRequiredService<AppDbContext>();
+        //    await SeedData.Seeding(dbcontext);
 
-            return services;
-        }
+        //    return services;
+        //}
     }
 }

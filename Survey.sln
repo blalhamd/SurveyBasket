@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Survey.Business", "Survey.B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Survey.DependencyInjection", "Survey.DependencyInjection\Survey.DependencyInjection.csproj", "{EA53B840-764A-4EB9-9372-97AFFCC0D7F7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Survey.API", "..\..\MyProjects\Survey\Survey.API\Survey.API.csproj", "{7FCAFDC1-132E-4459-8C39-CEDF6794F56E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Survey.API", "Survey.API\Survey.API.csproj", "{7FCAFDC1-132E-4459-8C39-CEDF6794F56E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
