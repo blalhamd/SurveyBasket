@@ -3,8 +3,11 @@
     public enum LogType
     {
         ERROR,
+
         DEBUG,
+        
         WARNING,
+        
         INFO,
     }
 }

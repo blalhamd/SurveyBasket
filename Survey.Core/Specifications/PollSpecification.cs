@@ -1,6 +1,4 @@
-﻿
-
-namespace Survey.Core.Specifications
+﻿namespace Survey.Core.Specifications
 {
     public class PollSpecification: BaseSpecification<Poll>
     {

@@ -1,5 +1,4 @@
-﻿
-namespace Survey.Shared.Exceptions
+﻿namespace Survey.Shared.Exceptions
 {
     public class ItemAlreadyExist : BaseException
     {

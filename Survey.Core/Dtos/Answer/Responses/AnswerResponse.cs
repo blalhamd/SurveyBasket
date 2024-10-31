@@ -1,5 +1,4 @@
-﻿
-namespace Survey.Core.Dtos.Answer.Responses
+﻿namespace Survey.Core.Dtos.Answer.Responses
 {
     public class AnswerResponse
     {

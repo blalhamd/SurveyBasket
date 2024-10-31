@@ -1,5 +1,4 @@
-﻿
-namespace Survey.DataAccess.FluentAPI
+﻿namespace Survey.DataAccess.FluentAPI
 {
     public class PollConfig : IEntityTypeConfiguration<Poll>
     {
@@ -8,8 +7,6 @@ namespace Survey.DataAccess.FluentAPI
             builder.ToTable("Polls").HasKey(x => x.Id);
 
             builder.HasIndex(x=> x.Title).IsUnique();
-
-
         }
     } 
 }

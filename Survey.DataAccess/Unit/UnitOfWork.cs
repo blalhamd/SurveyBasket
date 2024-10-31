@@ -1,5 +1,4 @@
-﻿
-namespace Survey.DataAccess.Unit
+﻿namespace Survey.DataAccess.Unit
 {
     public class UnitOfWork : IUnitOfWork
     {
@@ -27,14 +26,5 @@ namespace Survey.DataAccess.Unit
             return await _appDbContext.SaveChangesAsync(cancellationToken);
         }
 
-        public Task CommitAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task RollBackAsync()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

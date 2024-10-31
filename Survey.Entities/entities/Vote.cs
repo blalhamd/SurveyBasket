@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Survey.Entities.entities
+﻿namespace Survey.Entities.entities
 {
     public class Vote
     {
@@ -9,6 +7,7 @@ namespace Survey.Entities.entities
         public int UserId { get; set; }
         public DateTime SubmittedOn { get; set; } = DateTime.UtcNow;
         public Poll Poll { get; set; } = null!;
+        
         [NotMapped]
         public virtual ApplicationUser ApplicationUser { get; set; } = null!;
         public ICollection<VoteAnswer> voteAnswers { get; set; } = new List<VoteAnswer>();

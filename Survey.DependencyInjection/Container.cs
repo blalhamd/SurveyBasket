@@ -2,7 +2,7 @@
 {
     public static class Container
     {
-        public static async Task<IServiceCollection> AddDependencies(this IServiceCollection services,IConfiguration configuration)
+        public static IServiceCollection AddDependencies(this IServiceCollection services,IConfiguration configuration)
         {
             // Register ConnectionString
 
@@ -61,7 +61,7 @@
 
             services.RegisterUserLimiting();
 
-            // await services.SendDefaultData();
+            services.SendDefaultData();
 
             return services;
         }
@@ -106,12 +106,12 @@
             return services;
         }
 
-        public static async Task<IServiceCollection> SendDefaultData(this IServiceCollection services)
+        public static IServiceCollection SendDefaultData(this IServiceCollection services)
         {
             var scope = services.BuildServiceProvider().CreateScope();
             var provider = scope.ServiceProvider;
             var dbcontext = provider.GetRequiredService<AppDbContext>();
-            await SeedData.Seeding(dbcontext);
+            SeedData.Seeding(dbcontext);
 
             return services;
         }

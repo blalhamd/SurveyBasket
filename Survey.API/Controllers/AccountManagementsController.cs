@@ -36,12 +36,5 @@
             return await _userService.ChangePassword(Convert.ToInt32(userId), changePasswordRequest);
         }
 
-        [HttpGet("Test")]
-        public ActionResult GetString()
-        {
-            Thread.Sleep(6000);
-
-            return Ok("I am a Software Developer..!!!");
-        }
     }
 }

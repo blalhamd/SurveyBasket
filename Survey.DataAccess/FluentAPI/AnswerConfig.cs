@@ -1,5 +1,4 @@
-﻿
-namespace Survey.DataAccess.FluentAPI
+﻿namespace Survey.DataAccess.FluentAPI
 {
     public class AnswerConfig : IEntityTypeConfiguration<Answer>
     {

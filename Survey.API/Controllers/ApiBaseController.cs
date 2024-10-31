@@ -1,5 +1,4 @@
-﻿
-namespace Survey.API.Controllers
+﻿namespace Survey.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

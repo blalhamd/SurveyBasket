@@ -1,5 +1,4 @@
-﻿
-namespace Survey.Core.Dtos.Authentication.Responses
+﻿namespace Survey.Core.Dtos.Authentication.Responses
 {
     public class AuthenticationResponse
     {

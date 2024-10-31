@@ -1,7 +1,4 @@
-﻿
-
-
-namespace Survey.DataAccess.Repositories.Non_Generic
+﻿namespace Survey.DataAccess.Repositories.Non_Generic
 {
     public class AnswerRepositoryAsync : GenericRepositoryAsync<Answer>, IAnswerRepositoryAsync
     {

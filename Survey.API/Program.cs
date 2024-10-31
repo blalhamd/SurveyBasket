@@ -13,7 +13,7 @@ builder.Services.AddDistributedMemoryCache();
 
 builder.Services.OptionsPatternConfig(builder.Configuration); // belong IOptions Pattern
 
-await builder.Services.AddDependencies(builder.Configuration);
+builder.Services.AddDependencies(builder.Configuration);
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

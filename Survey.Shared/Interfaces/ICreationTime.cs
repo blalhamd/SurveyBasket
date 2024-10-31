@@ -1,6 +1,4 @@
-﻿
-
-namespace Survey.Shared.Interfaces
+﻿namespace Survey.Shared.Interfaces
 {
     public interface IEntityCreationTime
     {

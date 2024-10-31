@@ -2,11 +2,11 @@
 {
     public static class SeedData
     {
-        public static async Task Seeding(AppDbContext dbContext)
+        public static void Seeding(AppDbContext dbContext)
         {
             if (dbContext is not null)
             {
-                if (!await dbContext.polls.AnyAsync())
+                if (!dbContext.polls.Any())
                 {
                     var ReadFromJson = File.ReadAllText("../Survey.DataAccess/Seed/jsons/Polls.json");
                     var Polls = JsonSerializer.Deserialize<List<Poll>>(ReadFromJson);
@@ -15,14 +15,14 @@
                     {
                         foreach (var item in Polls)
                         {
-                            await dbContext.polls.AddAsync(item);
+                             dbContext.polls.Add(item);
                         }
 
-                        await dbContext.SaveChangesAsync();
+                         dbContext.SaveChanges();
                     }
                 }
 
-                if(!await dbContext.Questions.AnyAsync())
+                if(!dbContext.Questions.Any())
                 {
                     var ReadFromJson = File.ReadAllText("../Survey.DataAccess/Seed/jsons/Questions.json");
                     var Questions = JsonSerializer.Deserialize<List<Question>>(ReadFromJson);
@@ -31,14 +31,14 @@
                     {
                         foreach (var question in Questions)
                         {
-                            await dbContext.Questions.AddAsync(question);
+                            dbContext.Questions.Add(question);
                         }
 
-                        await dbContext.SaveChangesAsync();
+                         dbContext.SaveChanges();
                     }
                 }
 
-                if (!await dbContext.Answers.AnyAsync())
+                if (!dbContext.Answers.Any())
                 {
                     var ReadFromJson = File.ReadAllText("../Survey.DataAccess/Seed/jsons/Answers.json");
                     var Answers = JsonSerializer.Deserialize<List<Answer>>(ReadFromJson);
@@ -47,10 +47,10 @@
                     {
                         foreach (var answer in Answers)
                         {
-                            await dbContext.Answers.AddAsync(answer);
+                             dbContext.Answers.Add(answer);
                         }
 
-                        await dbContext.SaveChangesAsync();
+                         dbContext.SaveChanges();
                     }
                 }
             }

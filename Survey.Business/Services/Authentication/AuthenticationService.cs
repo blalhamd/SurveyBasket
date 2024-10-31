@@ -2,69 +2,7 @@
 {
     public class AuthenticationService : IAuthenticationService
     {
-        //private readonly UserManager<ApplicationUser> _userManager;
-        //private readonly JwtOption _JwtOption;
-        //public AuthenticationService(UserManager<ApplicationUser> userManager, JwtOption jwtOption)
-        //{
-        //    _userManager = userManager;
-        //    _JwtOption = jwtOption;
-        //}
-
-        //public async Task<AuthenticationResponse?> Login(LoginRequest request)
-        //{
-        //    // check email
-
-        //    var user = await _userManager.FindByEmailAsync(request.Email);
-
-        //    // check password
-
-        //    if (user == null)
-        //         throw new BadRequest("Invalid UserName or Password");
-
-        //    var CheckPassword = await _userManager.CheckPasswordAsync(user, request.Password);
-
-        //    if (!CheckPassword)
-        //         throw new BadRequest("Invalid UserName or Password");
-
-        //    // generate token
-        //    var discriptor = new SecurityTokenDescriptor()
-        //    {
-        //        Issuer = _JwtOption.Issuer,
-        //        Audience = _JwtOption.Audience,
-        //        Expires = DateTime.Now.AddMinutes(Convert.ToInt32(_JwtOption.lifeTime)),
-        //        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_JwtOption.Key)), SecurityAlgorithms.HmacSha256),
-        //        Subject = new ClaimsIdentity(new List<Claim>
-        //        {
-        //            new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
-        //            new Claim(ClaimTypes.Name,user.Fname),
-        //            new Claim(ClaimTypes.Email,user.Email),
-        //        })
-        //    };
-
-        //    var TokenHandler = new JwtSecurityTokenHandler();
-        //    var Createtoken = TokenHandler.CreateToken(discriptor);
-        //    var Token = TokenHandler.WriteToken(Createtoken);
-
-        //    // customzie response
-
-
-        //    var result = new AuthenticationResponse()
-        //    {
-        //        Email = request.Email,
-        //        FirstName = user.Fname,
-        //        LastName = user.Lname,
-        //        Token = Token,
-        //        ExpireIn = Convert.ToInt32(_JwtOption.lifeTime)
-        //    };
-
-        //    return result is null? throw new BadRequest("Invalid UserName or Password") : result; 
-        //}
-
-        //public Task<AuthenticationResponse?> Register(RegisterRequest request)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
+        
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
@@ -341,3 +279,65 @@
         } 
     }
 }
+//private readonly UserManager<ApplicationUser> _userManager;
+//private readonly JwtOption _JwtOption;
+//public AuthenticationService(UserManager<ApplicationUser> userManager, JwtOption jwtOption)
+//{
+//    _userManager = userManager;
+//    _JwtOption = jwtOption;
+//}
+
+//public async Task<AuthenticationResponse?> Login(LoginRequest request)
+//{
+//    // check email
+
+//    var user = await _userManager.FindByEmailAsync(request.Email);
+
+//    // check password
+
+//    if (user == null)
+//         throw new BadRequest("Invalid UserName or Password");
+
+//    var CheckPassword = await _userManager.CheckPasswordAsync(user, request.Password);
+
+//    if (!CheckPassword)
+//         throw new BadRequest("Invalid UserName or Password");
+
+//    // generate token
+//    var discriptor = new SecurityTokenDescriptor()
+//    {
+//        Issuer = _JwtOption.Issuer,
+//        Audience = _JwtOption.Audience,
+//        Expires = DateTime.Now.AddMinutes(Convert.ToInt32(_JwtOption.lifeTime)),
+//        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_JwtOption.Key)), SecurityAlgorithms.HmacSha256),
+//        Subject = new ClaimsIdentity(new List<Claim>
+//        {
+//            new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
+//            new Claim(ClaimTypes.Name,user.Fname),
+//            new Claim(ClaimTypes.Email,user.Email),
+//        })
+//    };
+
+//    var TokenHandler = new JwtSecurityTokenHandler();
+//    var Createtoken = TokenHandler.CreateToken(discriptor);
+//    var Token = TokenHandler.WriteToken(Createtoken);
+
+//    // customzie response
+
+
+//    var result = new AuthenticationResponse()
+//    {
+//        Email = request.Email,
+//        FirstName = user.Fname,
+//        LastName = user.Lname,
+//        Token = Token,
+//        ExpireIn = Convert.ToInt32(_JwtOption.lifeTime)
+//    };
+
+//    return result is null? throw new BadRequest("Invalid UserName or Password") : result; 
+//}
+
+//public Task<AuthenticationResponse?> Register(RegisterRequest request)
+//{
+//    throw new NotImplementedException();
+//}

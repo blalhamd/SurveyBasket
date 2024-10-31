@@ -1,5 +1,4 @@
-﻿
-namespace Survey.Core.IUnit
+﻿namespace Survey.Core.IUnit
 {
     public interface IUnitOfWork : IAsyncDisposable
     {
@@ -7,7 +6,5 @@ namespace Survey.Core.IUnit
         public IQuestionRepositoryAsync QuestionRepository { get; }
         public IAnswerRepositoryAsync AnswerRepository { get; }
         Task<int> SaveAsync(CancellationToken cancellationToken);
-        Task CommitAsync();
-        Task RollBackAsync();
     }
 }

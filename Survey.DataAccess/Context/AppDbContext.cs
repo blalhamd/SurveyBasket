@@ -3,8 +3,8 @@
     public class AppDbContext : DbContext
     {
         public DbSet<Poll> polls { get; set; }
-        public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
+        public DbSet<Question> Questions { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Vote> Votes { get; set; }
         public DbSet<VoteAnswer> VoteAnswers { get; set; }
@@ -44,8 +44,6 @@
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             var entries = ChangeTracker.Entries<BaseEntity>();
-
-            // var CurrentUserId = _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.NameIdentifier)!.Value ?? null;
 
             var CurrentUserIdClaim = _httpContextAccessor.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier);
           
