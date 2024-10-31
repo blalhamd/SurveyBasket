@@ -14,30 +14,30 @@ namespace Survey.DataAccess.Repositories.Generic
         public DbSet<T> Entity { get => _entity; set => _entity = value; }
         
 
-        public async Task<IList<T>> GetAllAsync()
+        public async Task<IList<T>> GetAllAsync(CancellationToken cancellationToken = default)
         {
-            return await _entity.ToListAsync();
+            return await _entity.ToListAsync(cancellationToken);
         }
 
-        public async Task<IList<T>> GetAllAsync(ISpecification<T> specification)
+        public async Task<IList<T>> GetAllAsync(ISpecification<T> specification, CancellationToken cancellationToken = default)
         {
-            return await ApplySpecification(specification).ToListAsync();
+            return await ApplySpecification(specification).ToListAsync(cancellationToken);
 
         }
 
-        public async Task<T> GetByIdAsync(object id)
+        public async Task<T> GetByIdAsync(object id, CancellationToken cancellationToken = default)
         {
-            return await _entity.FindAsync(id);
+            return await _entity.FindAsync(id,cancellationToken);
         }
 
-        public async Task<T> GetByIdAsync(ISpecification<T> specification)
+        public async Task<T> GetByIdAsync(ISpecification<T> specification, CancellationToken cancellationToken = default)
         {
-            return await ApplySpecification(specification).FirstOrDefaultAsync();
+            return await ApplySpecification(specification).FirstOrDefaultAsync(cancellationToken);
         }
 
-        public async Task AddAsync(T entity)
+        public async Task AddAsync(T entity, CancellationToken cancellationToken = default)
         {
-            await _entity.AddAsync(entity);
+            await _entity.AddAsync(entity, cancellationToken);
         }
 
 
@@ -48,9 +48,9 @@ namespace Survey.DataAccess.Repositories.Generic
                 _entity.Update(entity);
             }); 
         }
-        public async Task DeleteAsync(object id)
+        public async Task DeleteAsync(object id, CancellationToken cancellationToken = default)
         {
-            var entity = await _entity.FindAsync(id);
+            var entity = await _entity.FindAsync(id,cancellationToken);
 
             if (entity != null)
             {

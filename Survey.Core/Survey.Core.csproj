@@ -8,12 +8,12 @@
 
   <ItemGroup>
     <Folder Include="AutoMapper\" />
-    <Folder Include="IRepositories\NonGeneric\" />
-    <Folder Include="IServices\" />
+    <Folder Include="Dtos\Authentication\Validators\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="StackExchange.Redis" Version="2.8.16" />
   </ItemGroup>
 
   <ItemGroup>

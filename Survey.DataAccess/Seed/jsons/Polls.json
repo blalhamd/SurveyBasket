@@ -1,42 +1,142 @@
 [
   {
-    "Title": "Favorite Movie Genre",
-    "Description": "A poll to determine the most popular movie genre among participants."
+    "Title": "Favorite Programming Language",
+    "Description": "Vote for your favorite programming language in 2024.",
+    "IsPublished": true,
+    "StartsAt": "2024-01-01",
+    "EndsAt": "2024-01-31",
+    "CreationTime": "2023-12-15T10:30:00",
+    "CreatedByUserId": 1,
+    "ModificatedByUserId": null,
+    "FirstModificationDate": null,
+    "LastModificationDate": null,
+    "IsDeleted": false,
+    "DeletedAt": null
   },
   {
-    "Title": "Best Vacation Destination",
-    "Description": "A poll asking participants to choose their favorite vacation destination."
+    "Title": "Best City to Live In",
+    "Description": "Which city offers the best quality of life?",
+    "IsPublished": false,
+    "StartsAt": "2024-02-01",
+    "EndsAt": "2024-02-15",
+    "CreationTime": "2023-12-20T14:00:00",
+    "CreatedByUserId": 2,
+    "ModificatedByUserId": 3,
+    "FirstModificationDate": "2023-12-25T09:45:00",
+    "LastModificationDate": "2024-01-05T11:00:00",
+    "IsDeleted": false,
+    "DeletedAt": null
   },
   {
-    "Title": "Preferred Programming Language",
-    "Description": "This poll seeks to find out which programming language is most favored by developers."
+    "Title": "Preferred Remote Work Setup",
+    "Description": "What is your ideal remote work environment?",
+    "IsPublished": true,
+    "StartsAt": "2024-03-01",
+    "EndsAt": "2024-03-20",
+    "CreationTime": "2024-01-10T08:15:00",
+    "CreatedByUserId": 4,
+    "ModificatedByUserId": null,
+    "FirstModificationDate": null,
+    "LastModificationDate": null,
+    "IsDeleted": false,
+    "DeletedAt": null
   },
   {
-    "Title": "Favorite Sport",
-    "Description": "A poll to discover the most loved sport among the general public."
+    "Title": "Most Anticipated Technology in 2025",
+    "Description": "Which upcoming technology do you believe will have the biggest impact?",
+    "IsPublished": false,
+    "StartsAt": "2024-05-01",
+    "EndsAt": "2024-06-01",
+    "CreationTime": "2024-02-15T12:30:00",
+    "CreatedByUserId": 1,
+    "ModificatedByUserId": 2,
+    "FirstModificationDate": "2024-02-20T10:00:00",
+    "LastModificationDate": "2024-03-01T16:00:00",
+    "IsDeleted": false,
+    "DeletedAt": null
   },
   {
-    "Title": "Most Used Social Media Platform",
-    "Description": "A poll to determine which social media platform is used the most."
+    "Title": "Healthiest Eating Habits",
+    "Description": "Which diet trend do you think promotes the healthiest lifestyle?",
+    "IsPublished": true,
+    "StartsAt": "2024-06-10",
+    "EndsAt": "2024-06-30",
+    "CreationTime": "2024-03-05T15:30:00",
+    "CreatedByUserId": 5,
+    "ModificatedByUserId": 6,
+    "FirstModificationDate": "2024-03-10T14:15:00",
+    "LastModificationDate": "2024-03-20T09:00:00",
+    "IsDeleted": false,
+    "DeletedAt": null
   },
   {
-    "Title": "Best Coffee Brand",
-    "Description": "Participants are asked to select their preferred coffee brand in this poll."
+    "Title": "Best Sport to Play for Fitness",
+    "Description": "Which sport is the most effective for staying fit?",
+    "IsPublished": true,
+    "StartsAt": "2024-07-01",
+    "EndsAt": "2024-07-31",
+    "CreationTime": "2024-04-01T11:30:00",
+    "CreatedByUserId": 7,
+    "ModificatedByUserId": null,
+    "FirstModificationDate": null,
+    "LastModificationDate": null,
+    "IsDeleted": false,
+    "DeletedAt": null
   },
   {
-    "Title": "Favorite Music Genre",
-    "Description": "A poll to find out which genre of music is the most popular."
+    "Title": "Best Coding Bootcamp",
+    "Description": "Which coding bootcamp offers the best career opportunities?",
+    "IsPublished": false,
+    "StartsAt": "2024-08-01",
+    "EndsAt": "2024-08-15",
+    "CreationTime": "2024-05-10T14:00:00",
+    "CreatedByUserId": 8,
+    "ModificatedByUserId": 9,
+    "FirstModificationDate": "2024-05-20T09:45:00",
+    "LastModificationDate": "2024-06-01T12:30:00",
+    "IsDeleted": true,
+    "DeletedAt": "2024-07-01T15:00:00"
   },
   {
-    "Title": "Preferred Mode of Transportation",
-    "Description": "This poll explores people's favorite way to travel, whether by car, bike, or public transit."
+    "Title": "Most Popular Streaming Service",
+    "Description": "Which streaming platform offers the best content in 2024?",
+    "IsPublished": true,
+    "StartsAt": "2024-09-01",
+    "EndsAt": "2024-09-30",
+    "CreationTime": "2024-06-05T08:00:00",
+    "CreatedByUserId": 10,
+    "ModificatedByUserId": 11,
+    "FirstModificationDate": "2024-06-10T13:30:00",
+    "LastModificationDate": "2024-07-01T17:00:00",
+    "IsDeleted": false,
+    "DeletedAt": null
   },
   {
-    "Title": "Best Streaming Service",
-    "Description": "A poll asking participants to pick the best video streaming service."
+    "Title": "Preferred Social Media Platform",
+    "Description": "Which social media platform do you spend the most time on?",
+    "IsPublished": true,
+    "StartsAt": "2024-10-01",
+    "EndsAt": "2024-10-31",
+    "CreationTime": "2024-07-01T10:30:00",
+    "CreatedByUserId": 12,
+    "ModificatedByUserId": null,
+    "FirstModificationDate": null,
+    "LastModificationDate": null,
+    "IsDeleted": false,
+    "DeletedAt": null
   },
   {
-    "Title": "Favorite Cuisine",
-    "Description": "This poll is aimed at discovering the most liked cuisine among different cultures."
+    "Title": "Best Online Learning Platform",
+    "Description": "Which online platform offers the best learning resources?",
+    "IsPublished": false,
+    "StartsAt": "2024-11-01",
+    "EndsAt": "2024-11-15",
+    "CreationTime": "2024-08-15T11:00:00",
+    "CreatedByUserId": 13,
+    "ModificatedByUserId": 14,
+    "FirstModificationDate": "2024-08-20T14:15:00",
+    "LastModificationDate": "2024-09-01T11:45:00",
+    "IsDeleted": true,
+    "DeletedAt": "2024-10-01T16:00:00"
   }
 ]

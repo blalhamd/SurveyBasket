@@ -1,92 +1,158 @@
-﻿
-namespace Survey.Business.Services
+﻿namespace Survey.Business.Services
 {
     public class PollService : IPollService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILoggerService _loggerService;
         private readonly IMapper _mapper;
-        public PollService(IUnitOfWork unitOfWork,IMapper mapper)
+        public PollService(IUnitOfWork unitOfWork, IMapper mapper, ILoggerService loggerService)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _loggerService = loggerService;
         }
 
-        public async Task<IList<PollResponse>> GetAll()
+        public async Task<IList<PollResponse>> GetAll(CancellationToken cancellationToken)
         {
-            var spec = new PollSpecification();
-            spec.Includes = [];
+            _loggerService.LogInfo("Fetching all polls.");
 
-            var polls = await _unitOfWork.PollRepository.GetAllAsync(spec);
+            var polls = await _unitOfWork.PollRepository.GetAllAsync(cancellationToken);
 
-            if (polls is null)
-                throw new Exception();
+            if(polls is null)
+            {
+                _loggerService.LogInfo($"not exist polls");
+                throw new ItemNotFound("not exist polls");
+            }
+
+            _loggerService.LogInfo($"Found {polls.Count} polls.");
 
             var pollsDtos = _mapper.Map<IList<PollResponse>>(polls);
 
             return pollsDtos;
         }
 
-        public async Task<PollResponse> GetById(int id)
+        public async Task<IList<PollResponse>> GetCurrentPolls(CancellationToken cancellationToken)
         {
-            var spec = new PollSpecification();
-            spec.Includes = [];
-            spec.Predicate = (x => x.Id == id);
+            var spec = new PollSpecification(p => p.IsPublished &&
+                                             p.StartsAt < DateOnly.FromDateTime(DateTime.Now) &&
+                                             p.EndsAt > DateOnly.FromDateTime(DateTime.Now));
 
-            var poll = await _unitOfWork.PollRepository.GetByIdAsync(spec);
+            var polls = await _unitOfWork.PollRepository.GetAllAsync(spec,cancellationToken);
 
-            if (poll is null)
-                throw new Exception();
+            if (polls is null)
+            {
+                _loggerService.LogInfo($"not exist polls");
+                throw new ItemNotFound("not exist polls");
+            }
 
-            var pollsDto = _mapper.Map<PollResponse>(poll);
+            var pollResponses = _mapper.Map<IList<PollResponse>>(polls);
 
-            return pollsDto;
+            return pollResponses;
+        }
+
+        public async Task<PollResponse> GetById(int id, CancellationToken cancellationToken)
+        {
+            _loggerService.LogInfo("Fetching poll with #{id}.", id);
+
+            var poll = await GetByIdOrThrowException(id, cancellationToken);
+
+            _loggerService.LogInfo("Poll with #{id} found.", id);
+
+            var pollResponse = _mapper.Map<PollResponse>(poll);
+
+            return pollResponse;
         }
 
 
-        public async Task AddPoll(CreatePollRequest pollDto)
+        public async Task AddPoll(CreatePollRequest pollDto, CancellationToken cancellationToken)
         {
+            _loggerService.LogInfo("Adding a new poll.");
+
             if (pollDto is null)
-                throw new ArgumentNullException(); // chage as bad req
+            {
+                _loggerService.LogError("Poll data is null.");
+                throw new BadRequest("Data is Null"); 
+            }
 
-            var spec = new PollSpecification();
-            spec.Predicate = (x => x.Title == pollDto.Title && x.Description == pollDto.Description);
+            CheckValidateDate(pollDto);
 
-            var checkExist = await _unitOfWork.PollRepository.GetByIdAsync(spec);
-           
-            if(checkExist is not null)
-                throw new ArgumentNullException(); // chage as alrwady exist
+            var IsExist = await CheckPollExist(pollDto, cancellationToken);
+
+            if (IsExist)
+            {
+                _loggerService.LogWarning("Poll already exists.");
+                throw new ItemAlreadyExist("Item Already Exist");
+            }
 
             var Poll = _mapper.Map<Poll>(pollDto);
 
-            await _unitOfWork.PollRepository.AddAsync(Poll);
-            await _unitOfWork.SaveAsync();
+            await _unitOfWork.PollRepository.AddAsync(Poll, cancellationToken);
+            await _unitOfWork.SaveAsync(cancellationToken);
+            
+            _loggerService.LogInfo($"Poll '{Poll.Title}' added successfully.");
         }
 
-        public async Task UpdatePoll(int pollId, CreatePollRequest poll)
+        public async Task UpdatePoll(int pollId, CreatePollRequest model, CancellationToken cancellationToken)
         {
-            var Poll = await _unitOfWork.PollRepository.GetByIdAsync(pollId);    
+            var poll = await GetByIdOrThrowException(pollId);
+
+            Mapping(model, poll);
+
+            await _unitOfWork.PollRepository.UpdateAsync(poll);
+            await _unitOfWork.SaveAsync(cancellationToken);
+
+            _loggerService.LogInfo($"Poll '{poll.Title}' Updated successfully.");
+        }
+
+        public async Task DeletePoll(int id, CancellationToken cancellationToken)
+        {
+            var poll = await GetByIdOrThrowException(id, cancellationToken);
+
+            await _unitOfWork.PollRepository.DeleteAsync(poll);
+            await _unitOfWork.SaveAsync(cancellationToken);
+
+            _loggerService.LogInfo($"Poll '{poll.Title}' deleted successfully.");
+        }
+
+        private void CheckValidateDate(CreatePollRequest pollDto)
+        {
+            if (pollDto.StartsAt.CompareTo(pollDto.EndsAt) > 0 || pollDto.StartsAt.CompareTo(DateOnly.FromDateTime(DateTime.Now)) < 0 || pollDto.EndsAt.CompareTo(DateOnly.FromDateTime(DateTime.Now)) < 0)
+            {
+                _loggerService.LogError("Poll start/end date is invalid.");
+                throw new InvalidOperation("Here Mistake in StartsDate or EndsDate");
+            }
+        }
+
+        private void Mapping(CreatePollRequest model,Poll poll)
+        {
+            poll.Title = model.Title;
+            poll.Description = model.Description;
+            poll.IsPublished = model.IsPublished;
+            poll.StartsAt = model.StartsAt;
+            poll.EndsAt = model.EndsAt;
+        }
+
+        private async Task<Poll> GetByIdOrThrowException(int id,CancellationToken cancellationToken = default)
+        {
+            var Poll = await _unitOfWork.PollRepository.GetByIdAsync(id,cancellationToken);
 
             if (Poll is null)
-                throw new ArgumentNullException(); // chage as Not found
+            {
+                _loggerService.LogError("Poll with #{id} not found.", id);
+                throw new ItemNotFound($"Not Found Poll with #Id {id}");
+            }
 
-            Poll.Title = poll.Title;
-            Poll.Description = poll.Description;
-
-            await _unitOfWork.PollRepository.UpdateAsync(Poll);
-            await _unitOfWork.SaveAsync();
+            return Poll;
         }
 
-        public async Task DeletePoll(int id)
+        private async Task<bool> CheckPollExist(CreatePollRequest pollDto,CancellationToken cancellationToken = default)
         {
-            var Poll = await _unitOfWork.PollRepository.GetByIdAsync(id);
+            var spec = new PollSpecification(x => x.Title == pollDto.Title && x.Description == pollDto.Description);
+           
+            var checkExist = await _unitOfWork.PollRepository.GetByIdAsync(spec, cancellationToken);
 
-            if (Poll is null)
-                throw new ArgumentNullException(); // chage as Not found
-
-            await _unitOfWork.PollRepository.DeleteAsync(Poll);
-            await _unitOfWork.SaveAsync();
+            return checkExist != null;
         }
-
-       
+        
     }
 }

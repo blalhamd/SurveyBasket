@@ -6,6 +6,10 @@ namespace Survey.DataAccess.FluentAPI
         public void Configure(EntityTypeBuilder<Poll> builder)
         {
             builder.ToTable("Polls").HasKey(x => x.Id);
+
+            builder.HasIndex(x=> x.Title).IsUnique();
+
+
         }
-    }
+    } 
 }

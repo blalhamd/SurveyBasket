@@ -1,5 +1,5 @@
 ﻿
-
+global using Survey.Entities.entities.Identity;
 global using Microsoft.EntityFrameworkCore;
 global using Survey.Entities.entities;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -12,3 +12,13 @@ global using Survey.Core.IUnit;
 global using Survey.DataAccess.Repositories.Non_Generic;
 global using Survey.Core.Specifications;
 global using Survey.DataAccess.Specification.Evalutor;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+global using Microsoft.AspNetCore.Http;
+global using System.Security.Claims;
+global using Survey.Shared.Interfaces;
+global using Survey.Core.Dtos.Answer.Responses;
+global using Survey.Core.Dtos.Question.Responses;
+global using Survey.Shared.Exceptions;
+global using Survey.DataAccess.Identity.constants;
+global using Survey.DataAccess.Identity.IdentityEntitiesConfig;

@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Survey.DependencyInjection"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Survey.API", "Survey.API\Survey.API.csproj", "{7FCAFDC1-132E-4459-8C39-CEDF6794F56E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survey.Shared", "Survey.Shared\Survey.Shared.csproj", "{DF47BD74-22CB-4E85-BDD7-60DB67FD4F8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{7FCAFDC1-132E-4459-8C39-CEDF6794F56E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FCAFDC1-132E-4459-8C39-CEDF6794F56E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FCAFDC1-132E-4459-8C39-CEDF6794F56E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF47BD74-22CB-4E85-BDD7-60DB67FD4F8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF47BD74-22CB-4E85-BDD7-60DB67FD4F8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF47BD74-22CB-4E85-BDD7-60DB67FD4F8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF47BD74-22CB-4E85-BDD7-60DB67FD4F8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

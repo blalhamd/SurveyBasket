@@ -5,5 +5,8 @@ namespace Survey.API.Controllers
     [ApiController]
     public class ApiBaseController : ControllerBase
     {
+
+       
     }
 }
+
