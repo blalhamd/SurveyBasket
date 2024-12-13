@@ -98,7 +98,7 @@
                 var error = CreatedUser.Errors.FirstOrDefault();
                 throw new BadRequest($"Error Code: {error?.Code}\nError Description: {error?.Description}\n");
             }
-
+            
             await SendEmailConfirmation(appUser);
         }
 

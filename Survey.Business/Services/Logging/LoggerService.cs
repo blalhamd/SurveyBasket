@@ -11,8 +11,8 @@
             _logger = new LoggerConfiguration()
                 .MinimumLevel.Debug() // will change before production to info or warning
                 .Enrich.FromLogContext()
-                .ReadFrom.Configuration(_configuration, new ConfigurationReaderOptions() { SectionName = "Serilog" })
-                .CreateLogger();
+				.ReadFrom.Configuration(_configuration, new ConfigurationReaderOptions() { SectionName = "Serilog" })
+				.CreateLogger();
         }
 
         public void Log(LogType logType, string message, params object[]? parameters)
