@@ -93,6 +93,12 @@
 
 This documentation provides detailed information on the Authentication APIs available in this project.
 
+#### Security
+**JWT Authentication:** All endpoints (**except AuthenticationController**) require a valid JWT Bearer Token.
+**Example Header:**
+**text**
+**Authorization:**  `Bearer <your_token>`
+
 ---
 # Authentication API Documentation
 
@@ -563,19 +569,13 @@ POST /api/Votes
 
 **Response:**
 ```json
-{
+  {
   "id": 0,
   "pollId": 0,
   "userId": 0,
   "submittedOn": "2023-01-01T00:00:00Z"
-}
+  }
 ```
-
-#### Security
-**JWT Authentication: All endpoints (except AuthenticationController) require a valid JWT Bearer Token.**
-**Example Header:**
-**text**
-**Authorization:** ###### **Bearer <your_token>**
 ---
 ## **Getting Started**
 
