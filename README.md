@@ -233,7 +233,351 @@ All APIs in this controller are protected by rate limiting policies to prevent a
 - **Response (200)**: Success.
 ---
 
+### **Account Management**
 
+- **Endpoints**: `GET /api/AccountManagements`
+- **Description**: Retrieves the profile of the current user.
+- **Response**:
+      ```json
+      {
+          "id": 0,
+          "fname": "string",
+          "lname": "string",
+          "email": "string",
+          "phoneNumber": "string"
+      }
+    ```
+
+- **Endpoints**: `PUT /api/AccountManagements`
+- **Description**: Updates the user's profile.
+- **Request Body:**
+        ```json
+      {
+         "fname": "string",
+         "lname": "string",
+         "email": "string",
+         "phoneNumber": "string"
+      }
+    ```
+- **Response:**
+          ```json
+      {
+         "id": 0,
+         "fname": "string",
+         "lname": "string",
+         "email": "string",
+         "phoneNumber": "string"
+      }
+    ```
+
+- **Endpoints**: PUT /api/AccountManagements/Change-Password
+- **Description**: Changes the user's password.
+- **Request Body:**
+        ```json
+      {
+           "currentPassword": "string",
+           "newPassword": "string"
+      }
+    ```
+- **Response:**: true
+  
+
+# Polls API Documentation
+
+## Overview
+This API provides endpoints to manage polls, questions, roles, users, and votes. It supports CRUD operations for each resource.
+
+## Endpoints
+
+### Polls
+
+#### GET /api/Polls
+**Description:** Retrieves all polls.
+
+**Response:**
+```json
+[
+  {
+    "id": 0,
+    "title": "string",
+    "description": "string",
+    "isPublished": true,
+    "startsAt": {
+      "year": 2023,
+      "month": 1,
+      "day": 1
+    },
+    "endsAt": {
+      "year": 2023,
+      "month": 1,
+      "day": 1
+    }
+  }
+]
+```
+
+#### POST /api/Polls
+**Description:** Creates a new poll.
+
+**Request Body:**
+```json
+{
+  "title": "string",
+  "description": "string",
+  "isPublished": true,
+  "startsAt": {
+    "year": 2023,
+    "month": 1,
+    "day": 1
+  },
+  "endsAt": {
+    "year": 2023,
+    "month": 1,
+    "day": 1
+  }
+}
+```
+
+### Questions
+#### GET /api/Questions
+**Description:** Retrieves all questions.
+Response:
+
+```json
+[
+  {
+    "id": 0,
+    "content": "string",
+    "pollId": 0,
+    "isActive": true
+  }
+]
+```
+
+#### POST /api/Questions
+**Description:** Creates a new question.
+**Request Body:**
+
+```json
+{
+  "content": "string",
+  "pollId": 0,
+  "isActive": true
+}
+```
+
+**Response:**
+
+```json
+{
+  "id": 0,
+  "content": "string",
+  "pollId": 0,
+  "isActive": true
+}
+```
+
+#### PUT /api/Questions/{id}
+**Description:** Updates an existing question.
+**Request Body:**
+
+```json
+{
+  "content": "string",
+  "isActive": true
+}
+```
+
+**Response:**
+
+```json
+{
+  "id": 0,
+  "content": "string",
+  "pollId": 0,
+  "isActive": true
+}
+```
+
+#### DELETE /api/Questions/{id}
+**Description:** Deletes a question by ID.
+**Response:**
+204 No Content
+
+#### Roles
+**Endpoints**: GET /api/Roles
+**Description**: Retrieves all roles.
+**Response**:
+```json
+[
+{
+  "id": 0,
+  "name": "string",
+  "description": "string"
+}
+]
+```
+
+POST /api/Roles
+**Description:** Creates a new role.
+**Request Body:**
+```json
+{
+  "name": "string",
+  "description": "string"
+}
+```
+
+**Response:**
+```json
+{
+  "id": 0,
+  "name": "string",
+  "description": "string"
+}
+```
+
+PUT /api/Roles/{id}
+**Description:** Updates an existing role.
+**Request Body:**
+```json
+{
+  "name": "string",
+  "description": "string"
+}
+```
+
+**Response:**
+```json
+{
+  "id": 0,
+  "name": "string",
+  "description": "string"
+}
+```
+
+DELETE /api/Roles/{id}
+**Description:** Deletes a role by ID.
+**Response:** 204 No Content
+
+#### Users
+**Endpoints**:
+GET /api/Users
+**Description:** Retrieves all users.
+**Response:**
+```json
+[
+{
+  "id": 0,
+  "fname": "string",
+  "lname": "string",
+  "email": "string",
+  "role": "string"
+}
+]
+```
+
+POST /api/Users
+**Description:** Creates a new user.
+**Request Body:**
+```json
+{
+  "fname": "string",
+  "lname": "string",
+  "email": "string",
+  "role": "string",
+  "password": "string"
+}
+```
+
+**Response:**
+```json
+{
+  "id": 0,
+  "fname": "string",
+  "lname": "string",
+  "email": "string",
+  "role": "string"
+}
+```
+
+PUT /api/Users/{id}
+**Description:** Updates an existing user.
+**Request Body:**
+```json
+{
+  "fname": "string",
+  "lname": "string",
+  "email": "string",
+  "role": "string"
+}
+```
+
+**Response:**
+```json
+{
+  "id": 0,
+  "fname": "string",
+  "lname": "string",
+  "email": "string",
+  "role": "string"
+}
+```
+
+DELETE /api/Users/{id}
+**Description:** Deletes a user by ID.
+**Response:** 204 No Content
+
+#### Votes
+
+**Endpoints**: GET /api/Votes
+**Description**: Retrieves all votes.
+**Response:**
+
+```json
+[
+{
+  "id": 0,
+  "pollId": 0,
+  "userId": 0,
+  "submittedOn": "2023-01-01T00:00:00Z"
+}
+]
+```
+
+POST /api/Votes
+**Description:** Creates a new vote.
+**Request Body:**
+```json
+{
+  "pollId": 0,
+  "userId": 0,
+  "answers": [
+{
+  "questionId": 0,
+  "answerId": 0
+}
+]
+}
+```
+
+**Response:**
+```json
+{
+  "id": 0,
+  "pollId": 0,
+  "userId": 0,
+  "submittedOn": "2023-01-01T00:00:00Z"
+}
+```
+
+Security
+JWT Authentication: All endpoints (except AuthenticationController) require a valid JWT Bearer Token.
+Example Header:
+text
+Copy code
+Authorization: Bearer <your_token>
+---
 ## **Getting Started**
 
 ### **Clone the Repository**
