@@ -96,7 +96,6 @@ This documentation provides detailed information on the Authentication APIs avai
 #### Security
 **JWT Authentication:** All endpoints (**except AuthenticationController**) require a valid JWT Bearer Token.
 **Example Header:**
-**text**
 **Authorization:**  `Bearer <your_token>`
 
 ---
