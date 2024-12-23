@@ -62,7 +62,14 @@
   - Maps user responses to specific questions and answers.
 
 ---
+## Technologies Used
 
+- ASP.NET Core: The API is built using the ASP.NET Core framework, which provides a robust and scalable platform for web development.
+- Entity Framework Core: Used for data access and database management, Entity Framework Core simplifies interacting with the database.
+- SQL Server: The API utilizes SQL Server as the underlying database to store book and user information.
+- Authentication and Authorization: The API employs token-based authentication using JSON Web Tokens (JWT) for secure user authentication and permission-based authorization.
+- Caching: Memory Cache
+  
 ## **Technical Highlights**
 
 - **Scalability**:
