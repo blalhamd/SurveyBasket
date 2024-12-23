@@ -88,13 +88,6 @@
 - **Analyze Results**: Leverage structured data to analyze user participation and poll performance.
 
 ---
-
-## **Getting Started**
-
-### **Clone the Repository**
-```bash
-git clone https://github.com/blalhamd/SurveyBasket.git
-
 ---
 # API Documentation
 
@@ -239,4 +232,11 @@ All APIs in this controller are protected by rate limiting policies to prevent a
     ```
 - **Response (200)**: Success.
 ---
+
+
+## **Getting Started**
+
+### **Clone the Repository**
+```bash
+git clone https://github.com/blalhamd/SurveyBasket.git
 
