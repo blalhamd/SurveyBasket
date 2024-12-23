@@ -94,3 +94,149 @@
 ### **Clone the Repository**
 ```bash
 git clone https://github.com/blalhamd/SurveyBasket.git
+
+---
+# API Documentation
+
+This documentation provides detailed information on the Authentication APIs available in this project.
+
+---
+# Authentication API Documentation
+
+These APIs handle user authentication, registration, and account management tasks.
+
+## **Table of Contents**
+1. [Rate Limiting](#rate-limiting)
+2. [Authentication Endpoints](#authentication-endpoints)
+    - [Login](#login)
+    - [Register](#register)
+    - [Check Email Existence](#check-email-existence)
+    - [Confirm Email](#confirm-email)
+    - [Resend Confirmation Email](#resend-confirmation-email)
+    - [Forget Password](#forget-password)
+    - [Reset Password](#reset-password)
+
+---
+
+## **Rate Limiting**
+All APIs in this controller are protected by rate limiting policies to prevent abuse and ensure smooth functionality:
+- **Concurrency Limiting**: Limits the number of concurrent requests.
+- **IP Rate Limiting**: Restricts excessive requests from the same IP address.
+
+---
+
+## **Authentication Endpoints**
+
+### **1. Login**
+
+- **Endpoint**: `POST /api/Authentication/Login`
+- **Description**: Allows users to log in by providing valid credentials.
+- **Request Body**:
+    ```json
+    {
+        "email": "user@example.com",
+        "password": "string"
+    }
+    ```
+- **Response (200)**:
+    ```json
+    {
+        "id": 0,
+        "firstName": "string",
+        "lastName": "string",
+        "email": "string",
+        "token": "string",
+        "expireIn": 0
+    }
+    ```
+
+---
+
+### **2. Register**
+
+- **Endpoint**: `POST /api/Authentication/Register`
+- **Description**: Allows new users to register by providing required details.
+- **Request Body**:
+    ```json
+    {
+        "firstName": "string",
+        "lastName": "string",
+        "email": "user@example.com",
+        "password": "string"
+    }
+    ```
+- **Response (200)**: Success.
+
+---
+
+### **3. Check Email Existence**
+
+- **Endpoint**: `GET /api/Authentication/CheckEmailExist`
+- **Description**: Checks if an email is already registered.
+- **Query Parameter**:
+    - `email`: The email to check.
+- **Response (200)**:
+    ```json
+    true
+    ```
+
+---
+
+### **4. Confirm Email**
+
+- **Endpoint**: `POST /api/Authentication/confirm-email`
+- **Description**: Confirms a user's email using a verification code.
+- **Request Body**:
+    ```json
+    {
+        "userId": 0,
+        "code": "string"
+    }
+    ```
+- **Response (200)**: Success.
+
+---
+
+### **5. Resend Confirmation Email**
+
+- **Endpoint**: `POST /api/Authentication/Resend-Confirmation-Email`
+- **Description**: Resends a confirmation email to the user.
+- **Request Body**:
+    ```json
+    {
+        "email": "user@example.com"
+    }
+    ```
+- **Response (200)**: Success.
+
+---
+
+### **6. Forget Password**
+
+- **Endpoint**: `POST /api/Authentication/forget-password`
+- **Description**: Sends a reset password email to the user.
+- **Request Body**:
+    ```json
+    {
+        "email": "user@example.com"
+    }
+    ```
+- **Response (200)**: Success.
+
+---
+
+### **7. Reset Password**
+
+- **Endpoint**: `POST /api/Authentication/Reset-Password`
+- **Description**: Resets the user's password using a token.
+- **Request Body**:
+    ```json
+    {
+        "email": "user@example.com",
+        "token": "string",
+        "newPassword": "string"
+    }
+    ```
+- **Response (200)**: Success.
+---
+
