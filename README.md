@@ -238,7 +238,7 @@ All APIs in this controller are protected by rate limiting policies to prevent a
 - **Endpoints**: `GET /api/AccountManagements`
 - **Description**: Retrieves the profile of the current user.
 - **Response**:
-      ```json
+    ```json
       {
           "id": 0,
           "fname": "string",
@@ -251,7 +251,7 @@ All APIs in this controller are protected by rate limiting policies to prevent a
 - **Endpoints**: `PUT /api/AccountManagements`
 - **Description**: Updates the user's profile.
 - **Request Body:**
-        ```json
+    ```json
       {
          "fname": "string",
          "lname": "string",
@@ -260,7 +260,7 @@ All APIs in this controller are protected by rate limiting policies to prevent a
       }
     ```
 - **Response:**
-          ```json
+    ```json
       {
          "id": 0,
          "fname": "string",
@@ -273,7 +273,7 @@ All APIs in this controller are protected by rate limiting policies to prevent a
 - **Endpoints**: PUT /api/AccountManagements/Change-Password
 - **Description**: Changes the user's password.
 - **Request Body:**
-        ```json
+    ```json
       {
            "currentPassword": "string",
            "newPassword": "string"
