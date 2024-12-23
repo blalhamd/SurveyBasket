@@ -571,11 +571,11 @@ POST /api/Votes
 }
 ```
 
-**Security
-JWT Authentication: All endpoints (except AuthenticationController) require a valid JWT Bearer Token.
-Example Header:
-text
-Authorization: Bearer <your_token>**
+#### Security
+**JWT Authentication: All endpoints (except AuthenticationController) require a valid JWT Bearer Token.**
+**Example Header:**
+**text**
+**Authorization:** ###### **Bearer <your_token>**
 ---
 ## **Getting Started**
 
